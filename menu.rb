@@ -27,7 +27,6 @@ def draw
   button_hard.color = 'red'
   text_hard = Text.new 'HARD', size: button_hard.height / 4, color: 'black', x: 455, y: 330
   text_start_hard = Text.new 'PRESS H', size: text_initial.height/4, color: 'white', x: 440, y: 410
-
 end
 
 end
