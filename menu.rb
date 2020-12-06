@@ -1,13 +1,6 @@
 
 class Menu
 
-def initialize
-  @started = false
-  @option_easy = false
-  @option_medium = false
-  @option_hard = false
-end
-
 def draw
 
   snakemenu = Image.new('snakemenu.png', width: 200, height: 110, x: 430, y: 20,)
@@ -36,13 +29,5 @@ def draw
   text_start_hard = Text.new 'PRESS H', size: text_initial.height/4, color: 'white', x: 440, y: 410
 
 end
-
-def hola
-  button_hard = Rectangle.new width: 140, height: 100, x: 420, y: 300
-  button_hard.color = 'blue'
-  text_hard = Text.new 'HARD', size: button_hard.height / 4, color: 'black', x: 455, y: 330
-  text_start_hard = Text.new 'PRESS H', size: text_initial.height/4, color: 'white', x: 440, y: 410
-end
-
 
 end
