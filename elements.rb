@@ -4,7 +4,7 @@ class Elements
   end
 
   def draw_apple (x,y)
-    apple = Sprite.new(
+    apple = Image.new(
       'apple.png',
       width: GRID_WIDTH,
       height: GRID_HEIGHT,
@@ -14,7 +14,7 @@ class Elements
   end
 
   def draw_pear (x,y)
-    pear = Sprite.new(
+    pear = Image.new(
       'pear.png',
       width: GRID_WIDTH,
       height: GRID_HEIGHT,
@@ -24,7 +24,7 @@ class Elements
   end
 
   def draw_pineapple (x,y)
-    pineapple = Sprite.new(
+    pineapple = Image.new(
       'pineapple.png',
       width: GRID_WIDTH,
       height: GRID_HEIGHT,
@@ -34,7 +34,7 @@ class Elements
   end
 
   def draw_watermelon (x,y)
-    watermelon = Sprite.new(
+    watermelon = Image.new(
       'watermelon.png',
       width: GRID_WIDTH,
       height: GRID_HEIGHT,
@@ -56,7 +56,7 @@ class Elements
   end
 
   def draw_wall (x,y)
-    wall = Sprite.new(
+    wall = Image.new(
       'wall.png',
       width: GRID_WIDTH,
       height: GRID_HEIGHT,

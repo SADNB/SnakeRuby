@@ -3,11 +3,13 @@ GRID_WIDTH = Window.width / SQUARE_SIZE
 GRID_HEIGHT = Window.height / SQUARE_SIZE
 class Snake
   attr_writer :direction
+  attr_writer :hard
 
   def initialize
     @positions = [[2, 0], [2, 1], [2, 2], [2 ,3]]
     @direction = 'down'
     @growing = false
+    @hard=false
   end
 
   def draw
@@ -101,10 +103,16 @@ class Snake
     @positions.uniq.length != @positions.length
   end
 
-  private
+  def hit_border?
+    head[0]<0 || head[0]>GRID_WIDTH-1 || head[1]<0 || head[1]>GRID_HEIGHT-1
+  end
 
   def new_coords(x, y)
-    [x % GRID_WIDTH, y % GRID_HEIGHT]
+    if !@hard
+      [x % GRID_WIDTH, y % GRID_HEIGHT]
+    else
+      [x,y]
+    end
   end
 
   def head

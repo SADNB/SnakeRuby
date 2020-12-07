@@ -4,62 +4,60 @@ require './snake.rb'
 require './menu.rb'
 
 set title: "SADNB SNAKE"
-set fps_cap: 10
-
-@key_e_pressed = false
-@key_m_pressed = false
-@key_h_pressed = false
+set fps_cap: 20
 
 menu = Menu.new
 menu.draw
 
-game = Game.new
+game = Game.new()
 snake = Snake.new
 
 on :key_held do |k|
 
     if k.key == 'e'
       game.easy = true
-      set fps_cap: 10
+    elsif k.key == 'h'
+      snake.hard = true
     end
 
-    if k.key == 'm'
-      game.easy = false
-      set fps_cap: 15
+    if k.key == 'e' || k.key == 'm' || k.key == 'h'
+
+      song = Music.new('gamesong.mp3')
+      song.play
+      song.loop=true
+      song.volume=20
+
+      update do
+        clear
+
+        unless game.finished?
+          snake.move
+        end
+
+        snake.draw
+        game.draw
+
+        if game.snake_hit_fruit?(snake.x, snake.y)
+          game.record_hit
+          snake.grow
+        end
+
+        if snake.hit_itself?
+          game.finish
+          song.stop
+        end
+
+        if snake.hit_border?
+          game.finish
+          song.stop
+        end
+
+        if game.snake_hit_wall?(snake.x, snake.y)
+          game.finish
+          song.stop
+        end
+
     end
-    
-    if k.key == 'e' || k.key == 'm'
-
-  update do
-    clear
-
-    unless game.finished?
-      snake.move
-    end
-
-    snake.draw
-    game.draw
-
-    if game.snake_hit_fruit?(snake.x, snake.y)
-      game.record_hit
-      snake.grow
-    end
-
-    if snake.hit_itself?
-      game.finish
-      gameover=Music.new('GameOver.wav')
-      gameover.play
-      gameover.volume=75
-    end
-
-    if game.snake_hit_wall?(snake.x, snake.y)
-      game.finish
-      gameover=Music.new('GameOver.wav')
-      gameover.play
-      gameover.volume=75
-    end
-
-end
 
 
 on :key_down do |event|
@@ -71,8 +69,16 @@ on :key_down do |event|
 
 
       if game.finished? && event.key == 'r'
-        snake = Snake.new
         game = Game.new
+        snake = Snake.new
+        song.play
+        song.loop=true
+        song.volume=20
+        if k.key == 'e'
+          game.easy = true
+        elsif k.key == 'h'
+          snake.hard = true
+        end
       end
     end
   end

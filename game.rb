@@ -10,6 +10,7 @@ class Game
     @drawn=true
     @type=rand(4)
     @sound=false
+    @easy=false
   end
 
   def draw
