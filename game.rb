@@ -1,6 +1,7 @@
 require './elements.rb'
 class Game
   attr_writer :easy
+
   def initialize
     @fruit_x = rand(Window.width / SQUARE_SIZE)
     @fruit_y = rand(Window.height / SQUARE_SIZE)
@@ -21,7 +22,7 @@ class Game
     end
 end
     draw_fruit(@fruit_x,@fruit_y)
-    Text.new(text_message, color: 'white', x: 10, y: 10, size: 25, z: 1)
+    Text.new(text_message, color: 'white', x: 10, y: 10, size: 25)
   end
 
 
@@ -69,8 +70,6 @@ end
   def finished?
     @finished
   end
-
-  private
 
   def text_message
     if finished?

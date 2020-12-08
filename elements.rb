@@ -1,8 +1,5 @@
 class Elements
-  def initialize
-    @type=0
-  end
-
+  
   def draw_apple (x,y)
     apple = Image.new(
       'apple.png',

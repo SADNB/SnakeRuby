@@ -9,10 +9,10 @@ def draw
   watermelonmenu = Image.new('watermelon.png', width: 40, height: 40, x: 180, y: 60,)
   pineapplemenu = Image.new('pineapple.png', width: 40, height: 40, x: 90, y: 60,)
 
-
   text_initial = Text.new 'RUBY SNAKE', size: 70, color: 'white', x: 90, y: 150
 
-  text_start = Text.new 'PRESS YOUR OPTION TO START', size: text_initial.height/3, color: 'white', x: 120, y: 250
+  text_start = Text.new 'CHOOSE YOUR OPTION TO START', size: text_initial.height/3, color: 'white', x: 100, y: 250
+
   button_easy = Rectangle.new width: 140, height: 100, x: 80, y: 300
   button_easy.color = 'green'
   text_easy = Text.new 'EASY', size: button_easy.height / 4, color: 'black', x: 115, y: 330
@@ -27,6 +27,7 @@ def draw
   button_hard.color = 'red'
   text_hard = Text.new 'HARD', size: button_hard.height / 4, color: 'black', x: 455, y: 330
   text_start_hard = Text.new 'PRESS H', size: text_initial.height/4, color: 'white', x: 440, y: 410
+
 end
 
 end

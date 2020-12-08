@@ -4,12 +4,12 @@ require './snake.rb'
 require './menu.rb'
 
 set title: "SADNB SNAKE"
-set fps_cap: 20
+set fps_cap: 10
 
 menu = Menu.new
 menu.draw
 
-game = Game.new()
+game = Game.new
 snake = Snake.new
 
 on :key_held do |k|
